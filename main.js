@@ -32,28 +32,47 @@ function costeAvion(num) {
     const priceMadrid = 90
     const priceBarcelona = 90
 
-    if (selectedCity.value === "Oviedo"){
-        return num * priceOviedo
-    }else
-    if (selectedCity.value === "Oviedo"){
-        return num * priceOviedo
-
-
+    if (selectedCity.value === "Oviedo") {
+        if (num > 3) {
+            let discountedPrice = priceOviedo - (priceOviedo * 0.1)
+            return discountedPrice
+        } else {
+            return priceOviedo
+        }
+    } else
+        if (selectedCity.value === "Tokyo") {
+            if (num > 3) {
+                let discountedPrice = priceTokyo - (priceTokyo * 0.1)
+                return discountedPrice
+            } else {
+                return priceTokyo
+            }
+        }
+        else
+            if (selectedCity.value === "Madrid") {
+                if (num > 3) {
+                    let discountedPrice = priceMadrid - (priceMadrid * 0.1)
+                    return discountedPrice
+                } else {
+                    return priceMadrid
+                }
+            } else
+                if (selectedCity.value === "Barcelona") {
+                    if (num > 3) {
+                        let discountedPrice = priceBarcelona - (priceBarcelona * 0.1)
+                        return discountedPrice
+                    } else {
+                        return priceBarcelona
+                    }
+                }
 }
 
-
-
 send.onclick = () => {
-    console.log(costeHotel(nights.value))
-    console.log(costeAlquilerCoche(nights.value));
+    hotelCost.value = costeHotel(nights.value)
+    carCost.value = costeAlquilerCoche(nights.value)
+    travelCost.value = (costeAvion(nights.value))
 
-    let cityValue = selectedCity.value
-    console.log(cityValue);
-
-
-    totalCost.value = `Noches ${nights.value} --- Ciudad ${cityValue}.`
-
-
+    totalCost.value = (hotelCost.value * 1) + (carCost.value * 1) + (travelCost.value * 1)
 }
 
 
