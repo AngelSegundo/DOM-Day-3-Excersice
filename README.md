@@ -1,2 +1,2 @@
-# DOM-Day-3-Excersice
-DOM Day 3 Excersice
+# DOM-Day02---Excersice02
+DOM-Day02---Excersice02
